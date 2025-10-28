@@ -1,10 +1,10 @@
 # calm.nvim
 
-A Neovim colorscheme inspired by GitLab's **Dark Grey** editor palette. The goal is to make reusable, language-agnostic defaults that respect GitLab's mix of salmon reds, violet keywords, and cyan operators while keeping the UI low contrast and calm.
+A Neovim colorscheme based on Tomorrow's **Pygments Dark** palette. The goal is to offer language-agnostic defaults that keep the Tomorrow mix of muted foregrounds, orchid keywords, and teal operators while staying low contrast and calm.
 
 ## Features
 
-- Uses GitLab Dark Grey palette with adjusted opacity values for Neovim.
+- Uses Tomorrow (Pygments) dark palette with hand-tuned opacity conversions for Neovim.
 - Highlights tuned for Tree-sitter, LSP diagnostics, and popular plugins (Telescope, nvim-tree, which-key, lazy.nvim, cmp).
 - Optional transparent background and simple override hook for custom highlight tweaks.
 
@@ -48,7 +48,7 @@ You can access the palette table with:
 
 ```lua
 local colors = require("calm").colors()
-print(colors.blue) -- #7fb6ed
+print(colors.blue) -- #81a2be
 ```
 
 ## Contributing
