@@ -136,7 +136,7 @@ function M.build(palette, opts)
     ["@constant"] = { fg = palette.orange },
     ["@constant.builtin"] = { fg = palette.orange },
     ["@constant.macro"] = { fg = palette.orange },
-    ["@string"] = { fg = palette.green },
+    ["@string"] = { fg = palette.orange },
     ["@string.regexp"] = { fg = palette.cyan },
     ["@string.special"] = { fg = palette.cyan },
     ["@string.escape"] = { fg = palette.cyan },
@@ -205,7 +205,7 @@ function M.build(palette, opts)
     -- Traditional highlight groups
     Comment = { fg = palette.comment, italic = true },
     Constant = { fg = palette.orange },
-    String = { fg = palette.green },
+    String = { fg = palette.orange },
     Character = { fg = palette.green },
     Number = { fg = palette.orange },
     Boolean = { fg = palette.orange },
