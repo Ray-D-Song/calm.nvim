@@ -5,7 +5,7 @@ local M = {}
 function M.load()
   return {
     bg = "#1F1F1F",
-    bg_alt = "#2D2D2D",
+    bg_alt = "#1F1F1F",
     fg = "#D4D4D4",
     fg_light = "#BBBBBB",
     fg_dim = "#5A5A5A",
