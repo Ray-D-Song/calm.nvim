@@ -1,16 +1,46 @@
 local util = require("calm.util")
 local highlight_builder = require("calm.highlights")
-local palette = require("calm.palette").colors
 
+---@class CalmConfig
+---@field preset? "tomorrow"|"vscode"|"vscode-light" Colorscheme preset
+---@field transparent boolean Enable transparent background
+---@field highlights? table|fun(palette: table): table Extra highlight definitions
+
+---@class CalmModule
+---@field setup fun(opts?: CalmConfig): nil
+---@field load fun(opts?: CalmConfig): nil
+---@field colors fun(): table
 local M = {}
 
+---@type CalmConfig
 local defaults = {
+  preset = "tomorrow",
   transparent = false,
   highlights = nil, -- table or function returning a table of extra highlight definitions
 }
 
+---@type CalmConfig
 local user_config = vim.deepcopy(defaults)
 
+---@param preset_name string
+---@return table
+local function load_preset(preset_name)
+  local preset_path = "calm.presets." .. preset_name
+  local ok, preset = pcall(require, preset_path)
+
+  if not ok then
+    vim.notify(
+      string.format("Calm: Preset '%s' not found, falling back to 'tomorrow'", preset_name),
+      vim.log.levels.WARN
+    )
+    preset = require("calm.presets.tomorrow")
+  end
+
+  return preset.load()
+end
+
+---@param opts? CalmConfig
+---@return CalmConfig
 local function resolve_config(opts)
   if not opts or vim.tbl_isempty(opts) then
     return vim.deepcopy(user_config)
@@ -18,16 +48,21 @@ local function resolve_config(opts)
   return util.extend(vim.deepcopy(user_config), opts)
 end
 
-local function normalize_overrides(overrides)
+---@param overrides? table|fun(palette: table): table
+---@param palette table
+---@return table?
+local function normalize_overrides(overrides, palette)
   if type(overrides) == "function" then
     return overrides(palette)
   end
   return overrides
 end
 
+---@param config CalmConfig
 local function apply_highlights(config)
-  local groups = highlight_builder.build(config)
-  local overrides = normalize_overrides(config.highlights)
+  local palette = load_preset(config.preset)
+  local groups = highlight_builder.build(palette, config)
+  local overrides = normalize_overrides(config.highlights, palette)
 
   if type(overrides) == "table" then
     for group, spec in pairs(overrides) do
@@ -38,12 +73,16 @@ local function apply_highlights(config)
   util.apply_highlights(groups)
 end
 
+---Setup the calm colorscheme with user configuration
+---@param opts? CalmConfig
 function M.setup(opts)
   if opts and not vim.tbl_isempty(opts) then
     user_config = util.extend(vim.deepcopy(defaults), opts)
   end
 end
 
+---Load the calm colorscheme
+---@param opts? CalmConfig
 function M.load(opts)
   local config = resolve_config(opts)
 
@@ -61,8 +100,10 @@ function M.load(opts)
   apply_highlights(config)
 end
 
+---Get the color palette for the current preset
+---@return table
 function M.colors()
-  return palette
+  return load_preset(user_config.preset)
 end
 
 return M

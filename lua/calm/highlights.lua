@@ -1,26 +1,27 @@
-local palette = require("calm.palette").colors
-
 local M = {}
 
-local function background(opts)
+local function background(palette, opts)
   if opts.transparent then
     return "NONE"
   end
   return palette.bg
 end
 
-local function float_background(opts)
+local function float_background(palette, opts)
   if opts.transparent then
     return "NONE"
   end
   return palette.bg_alt
 end
 
-function M.build(opts)
+---@param palette table The color palette
+---@param opts table Configuration options
+---@return table
+function M.build(palette, opts)
   opts = opts or {}
 
-  local bg = background(opts)
-  local float_bg = float_background(opts)
+  local bg = background(palette, opts)
+  local float_bg = float_background(palette, opts)
 
   return {
     Normal = { fg = palette.fg, bg = bg },
