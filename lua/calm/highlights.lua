@@ -20,6 +20,13 @@ end
 function M.build(palette, opts)
   opts = opts or {}
 
+  local preset = opts.preset or 'default'
+
+  -- local string_color = palette.orange
+  -- if preset == 'vscode-light' then
+  --   string_color = palette.green
+  -- end
+
   local bg = background(palette, opts)
   local float_bg = float_background(palette, opts)
 
@@ -121,86 +128,6 @@ function M.build(palette, opts)
     LspReferenceWrite = { bg = palette.selection },
     LspSignatureActiveParameter = { fg = palette.yellow, bg = palette.cursor_line, bold = true },
     LspCodeLens = { fg = palette.fg_dim },
-
-    -- Treesitter / Semantic tokens
-    ["@comment"] = { link = "Comment" },
-    ["@comment.documentation"] = { link = "Comment" },
-    ["@error"] = { link = "Error" },
-    ["@none"] = { fg = palette.fg },
-    ["@preproc"] = { link = "PreProc" },
-    ["@punctuation"] = { fg = palette.fg },
-    ["@punctuation.bracket"] = { fg = palette.fg },
-    ["@punctuation.delimiter"] = { fg = palette.fg },
-    ["@punctuation.special"] = { fg = palette.cyan },
-
-    ["@constant"] = { fg = palette.orange },
-    ["@constant.builtin"] = { fg = palette.orange },
-    ["@constant.macro"] = { fg = palette.orange },
-    ["@string"] = { fg = palette.orange },
-    ["@string.regexp"] = { fg = palette.cyan },
-    ["@string.special"] = { fg = palette.cyan },
-    ["@string.escape"] = { fg = palette.cyan },
-    ["@character"] = { fg = palette.green },
-    ["@number"] = { fg = palette.orange },
-    ["@boolean"] = { fg = palette.orange },
-    ["@float"] = { fg = palette.orange },
-
-    ["@symbol"] = { fg = palette.cyan },
-
-    ["@function"] = { fg = palette.blue },
-    ["@function.builtin"] = { fg = palette.cyan },
-    ["@function.call"] = { fg = palette.blue },
-    ["@function.macro"] = { fg = palette.cyan },
-    ["@method"] = { fg = palette.blue },
-    ["@method.call"] = { fg = palette.blue },
-    ["@constructor"] = { fg = palette.yellow },
-
-    ["@parameter"] = { fg = palette.fg },
-    ["@parameter.reference"] = { fg = palette.fg },
-    ["@field"] = { fg = palette.fg },
-    ["@property"] = { fg = palette.fg },
-    ["@variable"] = { fg = palette.fg },
-    ["@variable.builtin"] = { fg = palette.yellow, italic = true },
-    ["@variable.member"] = { fg = palette.fg },
-    ["@variable.parameter"] = { fg = palette.fg },
-    ["@variable.constant"] = { fg = palette.orange },
-
-    ["@keyword"] = { fg = palette.magenta },
-    ["@keyword.function"] = { fg = palette.magenta, italic = true },
-    ["@keyword.operator"] = { fg = palette.cyan },
-    ["@keyword.return"] = { fg = palette.magenta },
-    ["@conditional"] = { fg = palette.magenta },
-    ["@repeat"] = { fg = palette.magenta },
-    ["@label"] = { fg = palette.cyan },
-    ["@operator"] = { fg = palette.cyan },
-    ["@exception"] = { fg = palette.red },
-
-    ["@type"] = { fg = palette.yellow },
-    ["@type.builtin"] = { fg = palette.yellow },
-    ["@type.qualifier"] = { fg = palette.magenta },
-    ["@type.definition"] = { fg = palette.yellow },
-    ["@storageclass"] = { fg = palette.yellow },
-    ["@attribute"] = { fg = palette.cyan },
-    ["@namespace"] = { fg = palette.yellow },
-
-    ["@struct"] = { fg = palette.yellow },
-    ["@enum"] = { fg = palette.yellow },
-    ["@enumMember"] = { fg = palette.cyan },
-
-    ["@text"] = { fg = palette.fg },
-    ["@text.strong"] = { bold = true },
-    ["@text.emphasis"] = { italic = true },
-    ["@text.underline"] = { underline = true },
-    ["@text.strike"] = { strikethrough = true },
-    ["@text.title"] = { fg = palette.fg, bold = true },
-    ["@text.literal"] = { fg = palette.green },
-    ["@text.uri"] = { fg = palette.blue, underline = true },
-    ["@text.todo"] = { fg = palette.blue, bg = palette.cursor_line, bold = true },
-    ["@markup.link"] = { fg = palette.blue, underline = true },
-    ["@markup.list"] = { fg = palette.red },
-    ["@markup.heading"] = { fg = palette.red, bold = true },
-    ["@markup.raw"] = { fg = palette.green },
-    ["@markup.quote"] = { fg = palette.comment, italic = true },
 
     -- Traditional highlight groups
     Comment = { fg = palette.comment, italic = true },
