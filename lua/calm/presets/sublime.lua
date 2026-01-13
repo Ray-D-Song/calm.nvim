@@ -6,7 +6,7 @@ function M.load()
   return {
     -- Background and foreground
     bg = "#303841",
-    bg_alt = "#2e353e",
+    bg_alt = "#22262A",
     fg = "#d8dee9",
     fg_light = "#ffffff",
     fg_dim = "#46525c",
