@@ -1,5 +1,4 @@
 local util = require("calm.util")
-local highlight_builder = require("calm.highlights")
 
 ---@class CalmConfig
 ---@field preset? "tomorrow"|"vscode"|"vscode-light"|"sublime"|"pyments" Colorscheme preset
@@ -39,6 +38,23 @@ local function load_preset(preset_name)
   return preset.load()
 end
 
+---@param highlights_name string
+---@return table
+local function load_highlights_builder(highlights_name)
+  local highlights_path = "calm.highlights." .. highlights_name
+  local ok, builder = pcall(require, highlights_path)
+
+  if not ok then
+    vim.notify(
+      string.format("Calm: Highlights '%s' not found, falling back to 'default'", highlights_name),
+      vim.log.levels.WARN
+    )
+    builder = require("calm.highlights.default")
+  end
+
+  return builder
+end
+
 ---@param opts? CalmConfig
 ---@return CalmConfig
 local function resolve_config(opts)
@@ -60,10 +76,14 @@ end
 
 ---@param config CalmConfig
 local function apply_highlights(config)
-  local palette = load_preset(config.preset)
-  local groups = highlight_builder.build(palette, config)
-  local overrides = normalize_overrides(config.highlights, palette)
+  local preset_data = load_preset(config.preset)
+  local palette = preset_data.palette
+  local highlights_name = preset_data.highlights_name
 
+  local builder = load_highlights_builder(highlights_name)
+  local groups = builder.build(palette, config)
+
+  local overrides = normalize_overrides(config.highlights, palette)
   if type(overrides) == "table" then
     for group, spec in pairs(overrides) do
       groups[group] = spec
@@ -103,7 +123,8 @@ end
 ---Get the color palette for the current preset
 ---@return table
 function M.colors()
-  return load_preset(user_config.preset)
+  local preset_data = load_preset(user_config.preset)
+  return preset_data.palette
 end
 
 return M
