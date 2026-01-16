@@ -46,7 +46,7 @@ function M.load()
     orange = "#AA5D1F",       -- String escape orange
     yellow = "#767600",       -- Label yellow/olive
     green = "#008000",        -- Keyword/builtin green
-    cyan = "#666666",         -- Operator gray (from Pygments Operator: #666666)
+    cyan = "#3D7B7B",         -- Operator gray (from Pygments Operator: #666666)
     blue = "#0000FF",         -- Function/class blue
     magenta = "#AA22FF",      -- Operator.Word/Decorator magenta
     purple = "#19177C",       -- Variable/Symbol deep purple

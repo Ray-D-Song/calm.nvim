@@ -160,6 +160,7 @@ function M.build(palette, opts)
     Underlined = { underline = true },
     Bold = { bold = true },
     Italic = { italic = true },
+    Delimiter = { fg = palette.fg_light },
     Error = { fg = palette.bg, bg = palette.red },
     Todo = { fg = palette.blue, bg = palette.cursor_line, bold = true },
 
