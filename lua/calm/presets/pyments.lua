@@ -47,13 +47,35 @@ function M.load()
       orange = "#AA5D1F",       -- String escape orange
       yellow = "#767600",       -- Label yellow/olive
       green = "#008000",        -- Keyword/builtin green
-      cyan = "#3D7B7B",         -- Operator gray (from Pygments Operator: #666666)
+      cyan = "#3D7B7B",         -- Comment teal
       blue = "#0000FF",         -- Function/class blue
       magenta = "#AA22FF",      -- Operator.Word/Decorator magenta
       purple = "#19177C",       -- Variable/Symbol deep purple
       rust = "#B00040",         -- Keyword.Type dark red
+
+      -- Additional Pygments-specific colors
+      keyword_green = "#008000",      -- Keyword color (bold green)
+      keyword_type = "#B00040",       -- Keyword.Type (nobold)
+      operator_word = "#AA22FF",      -- Operator.Word (bold)
+      name_builtin = "#008000",       -- Name.Builtin
+      name_function = "#0000FF",      -- Name.Function
+      name_class = "#0000FF",         -- Name.Class (bold)
+      name_exception = "#CB3F38",     -- Name.Exception (bold)
+      name_constant = "#880000",      -- Name.Constant
+      name_label = "#767600",         -- Name.Label
+      name_entity = "#717171",        -- Name.Entity (bold)
+      name_attribute = "#687822",     -- Name.Attribute
+      name_tag = "#008000",           -- Name.Tag (bold)
+      name_decorator = "#AA22FF",     -- Name.Decorator
+      string_interpol = "#A45A77",    -- String.Interpol (bold)
+      string_regex = "#A45A77",       -- String.Regex
+      generic_heading = "#000080",    -- Generic.Heading (bold)
+      generic_subheading = "#800080", -- Generic.Subheading (bold)
+      generic_output = "#717171",     -- Generic.Output
+      generic_traceback = "#04D",     -- Generic.Traceback (blue)
+      preproc = "#9C6500",            -- Comment.Preproc (noitalic)
     },
-    highlights_name = "default",
+    highlights_name = "pyments",
   }
 end
 
