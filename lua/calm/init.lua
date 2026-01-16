@@ -2,7 +2,7 @@ local util = require("calm.util")
 local highlight_builder = require("calm.highlights")
 
 ---@class CalmConfig
----@field preset? "tomorrow"|"vscode"|"vscode-light" Colorscheme preset
+---@field preset? "tomorrow"|"vscode"|"vscode-light"|"sublime"|"pyments" Colorscheme preset
 ---@field transparent boolean Enable transparent background
 ---@field highlights? table|fun(palette: table): table Extra highlight definitions
 

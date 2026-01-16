@@ -26,7 +26,7 @@ function M.load()
     -- Diagnostics
     diag_error = "#c76b70",
     diag_warn = "#fac761",
-    diag_info = "#5c99d6",
+    diag_info = "#6699cc",
     diag_hint = "#5fb4b4",
 
     -- Diffs
@@ -47,7 +47,7 @@ function M.load()
     yellow = "#f9ae58",
     green = "#99c794",
     cyan = "#5fb4b4",
-    blue = "#5c99d6",
+    blue = "#6699cc",
     magenta = "#c695c6",
     purple = "#95b2d6",
     rust = "#c76b70",
