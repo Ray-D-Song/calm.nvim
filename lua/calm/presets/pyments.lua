@@ -7,7 +7,7 @@ function M.load()
     -- Background and foreground
     bg = "#f8f8f8",           -- Pygments default background
     bg_alt = "#e8e8e8",       -- Slightly darker for UI elements
-    fg = "#000000",           -- Default text color
+    fg = "#19177C",           -- Variables (Name.Variable deep purple)
     fg_light = "#000000",     -- Pure black for emphasis
     fg_dim = "#666666",       -- Operators and numbers
     fg_muted = "#717171",     -- Muted text (like entities)
@@ -46,7 +46,7 @@ function M.load()
     orange = "#AA5D1F",       -- String escape orange
     yellow = "#767600",       -- Label yellow/olive
     green = "#008000",        -- Keyword/builtin green
-    cyan = "#3D7B7B",         -- Comment teal
+    cyan = "#666666",         -- Operator gray (from Pygments Operator: #666666)
     blue = "#0000FF",         -- Function/class blue
     magenta = "#AA22FF",      -- Operator.Word/Decorator magenta
     purple = "#19177C",       -- Variable/Symbol deep purple

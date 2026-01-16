@@ -198,6 +198,27 @@ function M.build(palette, opts)
     -- Terminal
     TermCursor = { fg = palette.bg, bg = palette.fg_light },
     TermCursorNC = { fg = palette.bg, bg = palette.fg_dim },
+
+    -- LSP Semantic Tokens
+    ["@lsp.type.class"] = { link = "Type" },
+    ["@lsp.type.decorator"] = { link = "Function" },
+    ["@lsp.type.enum"] = { link = "Type" },
+    ["@lsp.type.enumMember"] = { link = "Constant" },
+    ["@lsp.type.function"] = { link = "Function" },
+    ["@lsp.type.interface"] = { link = "Type" },
+    ["@lsp.type.macro"] = { link = "Macro" },
+    ["@lsp.type.method"] = { link = "Function" },
+    ["@lsp.type.namespace"] = { link = "Type" },
+    ["@lsp.type.parameter"] = { fg = palette.fg },
+    ["@lsp.type.property"] = { fg = palette.fg },
+    ["@lsp.type.struct"] = { link = "Type" },
+    ["@lsp.type.type"] = { link = "Type" },
+    ["@lsp.type.typeParameter"] = { link = "Type" },
+    ["@lsp.type.variable"] = { fg = palette.fg },
+    ["@lsp.type.operator"] = { link = "Operator" },
+    ["@lsp.mod.readonly"] = { link = "Constant" },
+    ["@lsp.typemod.variable.defaultLibrary"] = { link = "Special" },
+    ["@lsp.typemod.function.defaultLibrary"] = { link = "Special" },
   }
 end
 
