@@ -12,14 +12,14 @@ function M.build(palette, opts)
 
   -- Override with Pygments-specific styling
   -- Comments
-  groups.Comment = { fg = palette.comment, italic = true }
-  groups.SpecialComment = { fg = palette.comment, italic = true }
+  groups.Comment = { fg = palette.comment }
+  groups.SpecialComment = { fg = palette.comment }
 
-  -- Keywords (bold green)
-  groups.Keyword = { fg = palette.keyword_green, bold = true }
-  groups.Statement = { fg = palette.keyword_green, bold = true }
-  groups.Conditional = { fg = palette.keyword_green, bold = true }
-  groups.Repeat = { fg = palette.keyword_green, bold = true }
+  -- Keywords (green)
+  groups.Keyword = { fg = palette.keyword_green }
+  groups.Statement = { fg = palette.keyword_green }
+  groups.Conditional = { fg = palette.keyword_green }
+  groups.Repeat = { fg = palette.keyword_green }
 
   -- Keyword.Type (nobold, different color)
   groups.Type = { fg = palette.keyword_type }
@@ -55,8 +55,8 @@ function M.build(palette, opts)
   groups.Macro = { fg = palette.preproc }
   groups.PreCondit = { fg = palette.preproc }
 
-  -- Exception (bold)
-  groups.Exception = { fg = palette.name_exception, bold = true }
+  -- Exception
+  groups.Exception = { fg = palette.name_exception }
 
   -- Delimiters
   groups.Delimiter = { fg = palette.fg }
@@ -65,8 +65,8 @@ function M.build(palette, opts)
   groups.Error = { fg = palette.diag_error, underline = true }
 
   -- LSP Semantic Tokens - Pygments style
-  groups["@lsp.type.class"] = { fg = palette.name_class, bold = true }
-  groups["@lsp.type.namespace"] = { fg = palette.name_class, bold = true }
+  groups["@lsp.type.class"] = { fg = palette.name_class }
+  groups["@lsp.type.namespace"] = { fg = palette.name_class }
   groups["@lsp.type.decorator"] = { fg = palette.name_decorator }
   groups["@lsp.type.function"] = { fg = palette.name_function }
   groups["@lsp.type.method"] = { fg = palette.name_function }
@@ -82,12 +82,12 @@ function M.build(palette, opts)
   groups["@lsp.typemod.function.defaultLibrary"] = { fg = palette.name_builtin }
 
   -- TreeSitter groups (if used)
-  groups["@keyword"] = { fg = palette.keyword_green, bold = true }
-  groups["@keyword.function"] = { fg = palette.keyword_green, bold = true }
-  groups["@keyword.operator"] = { fg = palette.operator_word, bold = true }
-  groups["@keyword.return"] = { fg = palette.keyword_green, bold = true }
-  groups["@keyword.conditional"] = { fg = palette.keyword_green, bold = true }
-  groups["@keyword.repeat"] = { fg = palette.keyword_green, bold = true }
+  groups["@keyword"] = { fg = palette.keyword_green }
+  groups["@keyword.function"] = { fg = palette.keyword_green }
+  groups["@keyword.operator"] = { fg = palette.operator_word }
+  groups["@keyword.return"] = { fg = palette.keyword_green }
+  groups["@keyword.conditional"] = { fg = palette.keyword_green }
+  groups["@keyword.repeat"] = { fg = palette.keyword_green }
   groups["@type"] = { fg = palette.keyword_type }
   groups["@type.builtin"] = { fg = palette.keyword_type }
   groups["@function"] = { fg = palette.name_function }
@@ -101,24 +101,24 @@ function M.build(palette, opts)
   groups["@constant.builtin"] = { fg = palette.name_constant }
   groups["@string"] = { fg = palette.red }
   groups["@string.regex"] = { fg = palette.string_regex }
-  groups["@string.escape"] = { fg = palette.orange, bold = true }
+  groups["@string.escape"] = { fg = palette.orange }
   groups["@character"] = { fg = palette.red }
   groups["@number"] = { fg = palette.fg_dim }
   groups["@boolean"] = { fg = palette.fg_dim }
   groups["@operator"] = { fg = palette.fg_dim }
-  groups["@comment"] = { fg = palette.comment, italic = true }
-  groups["@exception"] = { fg = palette.name_exception, bold = true }
+  groups["@comment"] = { fg = palette.comment }
+  groups["@exception"] = { fg = palette.name_exception }
   groups["@label"] = { fg = palette.name_label }
-  groups["@tag"] = { fg = palette.name_tag, bold = true }
+  groups["@tag"] = { fg = palette.name_tag }
   groups["@tag.attribute"] = { fg = palette.name_attribute }
   groups["@tag.delimiter"] = { fg = palette.fg }
-  groups["@namespace"] = { fg = palette.name_class, bold = true }
-  groups["@constructor"] = { fg = palette.name_class, bold = true }
+  groups["@namespace"] = { fg = palette.name_class }
+  groups["@constructor"] = { fg = palette.name_class }
 
   -- Markdown/Documentation specific
-  groups["@text.strong"] = { bold = true }
-  groups["@text.emphasis"] = { italic = true }
-  groups["@text.title"] = { fg = palette.generic_heading, bold = true }
+  groups["@text.strong"] = { fg = palette.fg }
+  groups["@text.emphasis"] = { fg = palette.fg }
+  groups["@text.title"] = { fg = palette.generic_heading }
 
   return groups
 end
